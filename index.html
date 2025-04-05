@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranjeet Kumar</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/ff/fa/b9/fffab961481ac172c77f22bd9a081bb7.jpg">
+
+    <style>
+        /* Google Fonts */
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
+            font-family: "Poppins", sans-serif;
+        }
+
+        :root {
+            --main-color: #033a80;
+            --bg-color: #fff;
+            --text-color: #0f0c27;
+            --hover: hsl(260, 100%, 51%);
+
+            --big-font: 3.2rem;
+            --medium-font: 1.8rem;
+            --p-font: 0.941rem;
+        }
+
+        section {
+            padding: 50px 10%;
+        }
+
+        body.active {
+            --text-color: #fff;
+            --bg-color: #0f0c27;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        *::selection {
+            color: var(--bg-color);
+            background: var(--main-color);
+        }
+
+        .heading {
+            text-align: center;
+        }
+
+        .heading h2 {
+            font-size: 30px;
+        }
+
+        .heading span {
+            font-size: var(--p-font);
+            color: rgb(2, 166, 70);
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-color);
+            padding: 13px 10%;
+            transition: 0.2s;
+            box-shadow: -3px -3px 7px #ffffff73,
+                2px 2px 5px rgba(94, 104, 121, 0.288);
+        }
+
+        header.shadow {
+            box-shadow: 0 0 4px rgb(14 55 54 / 15%);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #2c3e50;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo span {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        /* Hover Effect */
+        .logo:hover {
+            color: #e74c3c;
+        }
+
+        /* Underline Animation */
+        .logo::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #e74c3c;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        .navbar {
+            display: flex;
+        }
+
+        .navbar a {
+            font-size: 1rem;
+            padding: 10px 20px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: var(--hover);
+        }
+
+        #menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10001;
+            display: none;
+        }
+
+        #darkmode {
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .home {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 0.2fr 1fr 1fr;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .home-img {
+            order: 3;
+        }
+
+        .home-img img {
+            border-radius: 13px;
+            width: 70%;
+        }
+
+        .home-text span {
+            font-size: var(--medium-font);
+            font-weight: 500;
+        }
+
+        .home-text h1 {
+            font-size: var(--big-font);
+        }
+
+        .home-text h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .home-text p {
+            font-size: var(--p-font);
+            font-weight: 400;
+            margin: 0.7rem 0 1rem;
+        }
+
+        .social {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social a {
+            margin-bottom: 1rem;
+            font-size: 22px;
+            color: var(--text-color);
+        }
+
+        .social a:hover {
+            color: var(--hover);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--main-color);
+            color: #fff;
+            padding: 0.7rem 1.3rem;
+            border-radius: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--hover);
+        }
+
+
+        .about-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-img img {
+            width: 80%;
+            border-radius: 0.5rem;
+        }
+
+        .about-text p {
+            font-size: var(--p-font);
+            font-weight: 400;
+            text-align: justify;
+        }
+
+        .information {
+            margin: 1rem 0 1.4rem;
+        }
+
+        .information .info-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.4rem;
+        }
+
+        .information .info-box .bx {
+            font-size: 22px;
+        }
+
+        .information .info-box span {
+            font-weight: 400;
+            margin-left: 1rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            background-color: #000;
+            padding: 40px;
+        }
+
+        .skills-container div {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skills-container div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .skills-container img {
+            width: 80px;
+            /* Adjust as needed */
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skills-container div:hover img {
+            transform: scale(1.1);
+        }
+
+        .skills-container h4 {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .skills-container {
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .skills-container img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .skills-container h4 {
+                font-size: 14px;
+            }
+        }
+
+
+
+        /* Section Styling */
+        .services {
+            padding: 50px 10%;
+            background: #fff;
+            text-align: center;
+        }
+
+        .heading h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .heading span {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        /* Services Content */
+        .services-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Individual Service Box */
+        .services-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .services-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .services-box svg,
+        .services-box img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .services-box h2 {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        .services-box h3 {
+            font-size: 1rem;
+            text-align: center;
+            color: #7f8c8d;
+            margin: 5px 0;
+        }
+
+        .services-box h5,
+        .services-box h6 {
+            font-size: 0.9rem;
+            color: #16a085;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Link Styling */
+        .services-box a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #2980b9;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .services-box a:hover {
+            background: #1a5276;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services {
+                padding: 30px 5%;
+            }
+
+            .services-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .services-box {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading h2 {
+                font-size: 2rem;
+            }
+
+            .heading span {
+                font-size: 1rem;
+            }
+        }
+
+        .portfolio-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-img {
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            display: block;
+        }
+
+        .portfolio-img img:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        .heading h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .heading span {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        /* Project Section */
+        .project {
+            padding: 60px 20px;
+        }
+
+        .img1,
+        .img2 {
+            background: #e0e5ec;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #c8ccd2, -10px -10px 20px #f8faff;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: 0.3s ease;
+        }
+
+        .img1:hover,
+        .img2:hover {
+            transform: translateY(-5px);
+        }
+
+        .img1 h3,
+        .img2 h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .img1 h5,
+        .img2 h5 {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .img1 img,
+        .img2 img {
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            margin: 5px;
+            border-radius: 12px;
+            background: #e0e5ec;
+            box-shadow: 5px 5px 10px #c8ccd2, -5px -5px 10px #f8faff;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            box-shadow: inset 5px 5px 10px #c8ccd2, inset -5px -5px 10px #f8faff;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 60px 20px;
+        }
+
+        .right-1 {
+            background: #e0e5ec;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 20px #c8ccd2, -10px -10px 20px #f8faff;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .text {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 12px;
+            background: #e0e5ec;
+            box-shadow: inset 5px 5px 10px #c8ccd2, inset -5px -5px 10px #f8faff;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+            transition: 0.3s ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            box-shadow: inset 3px 3px 6px #c8ccd2, inset -3px -3px 6px #f8faff;
+        }
+
+        form button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        /* Footer Section */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #e0e5ec;
+            box-shadow: inset 5px 5px 10px #c8ccd2, inset -5px -5px 10px #f8faff;
+        }
+
+        .footer h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .footer-social a {
+            color: #333;
+            font-size: 30px;
+            margin: 0 10px;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #0077b5;
+            /* LinkedIn Blue */
+            transform: scale(1.2);
+        }
+
+        .footer-social github:hover {
+            color: #e3521d;
+            transform: scale(1.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            .img1,
+            .img2,
+            .right-1 {
+                padding: 20px;
+            }
+
+            .heading h2 {
+                font-size: 28px;
+            }
+
+            .text {
+                font-size: 20px;
+            }
+
+            button {
+                padding: 8px 16px;
+            }
+        }
+
+
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .navbar {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar a {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--main-color);
+        }
+
+        /* Hamburger Icon */
+        #menu-icon {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                position: absolute;
+                top: 100%;
+                right: -100%;
+                background: var(--bg-color);
+                display: flex;
+                flex-direction: column;
+                width: 200px;
+                text-align: center;
+                padding: 1rem 0;
+                transition: 0.3s;
+                border-radius: 8px;
+            }
+
+            .navbar.active {
+                right: 2rem;
+            }
+
+            #menu-icon {
+                display: block;
+            }
+        }
+
+
+
+
+
+        .home {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6rem 10%;
+            min-height: 100vh;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .home-text {
+            max-width: 600px;
+        }
+
+        .home-text span {
+            color: var(--main-color);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .home-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .home-text h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            color: var(--text-color);
+        }
+
+        .home-text p {
+            color: var(--second-color);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .home-img img {
+            max-width: 350px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .social {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social a {
+            font-size: 2rem;
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            color: var(--main-color);
+        }
+
+        /* Button Style */
+        .btn {
+            display: inline-block;
+            background: var(--main-color);
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+
+        /* Responsive for Mobile */
+        @media (max-width: 768px) {
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 4rem 2rem;
+            }
+
+            .home-img img {
+                max-width: 250px;
+            }
+
+            .home-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .home-text h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <a href="#" class="logo"><span>Ranj</span>eet <span>Kum</span>ar</a>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <div class="bx bx-moon" id="darkmode"></div>
+        </ul>
+    </header>
+    <!-- Home -->
+
+    <section class="home" id="home">
+        <div class="social">
+            <a href="https://github.com/RanjeetKumar28"><i class='bx bxl-github'></i></a>
+        </div>
+        <div class="home-img">
+            <img src="https://ranjeetkumarportfolio28.netlify.app/IMG_3294_resize.jpg" alt="">
+        </div>
+        <div class="home-text">
+            <span>Hello, I'm</span>
+            <h1>Ranjeet Kumar</h1>
+            <h2>Frontend Developer</h2>
+            <p>I am Frontened-Web-Devloper<br>Javascript Devloper<br>And I am Creating all Frontened Website</p>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+
+    </section>
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="heading">
+            <h2>About Me</h2>
+            <span>Introduction</span>
+        </div>
+        <!-- About Content -->
+        <div class="about-container">
+            <div class="about-img">
+                <img src="https://cdn.prod.website-files.com/62d84e447b4f9e7263d31e94/6557420216a456cfaef685c0_6399a4d27711a5ad2c9bf5cd_ben-sweet-2LowviVHZ-E-unsplash-1-p-1080.jpg"
+                    alt="">
+            </div>
+            <div class="about-text">
+                <p>I am a frontend web developer and I try my best to create any project suitable for frontend. My
+                    current skill is javascript which I am currently mastering and my main aim is to
+                    learn javascript all.</p>
+                <div class="information">
+                    <!-- Box 1 -->
+                    <div class="info-box">
+                        <i class='bx bxs-user'></i>
+                        <span>Ranjeet Kumar</span>
+                    </div>
+                    <!-- Box 2 -->
+                    <div class="info-box">
+                        <i class='bx bxs-phone'></i>
+                        <span>+91 9460232319</span>
+                    </div>
+                    <!-- Box 3 -->
+                    <div class="info-box">
+                        <i class='bx bxs-envelope'></i>
+                        <a href="https://mail.google.com/mail/u/0/#inbox"><span>ranjeetgehlot2006@gmail.com</span></a>
+                    </div>
+                </div>
+                <a href="" class="btn" download="Ranjeet Kumar Resume.jpg">Download Cv</a>
+            </div>
+        </div>
+    </section>
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="heading">
+            <h2>Skills</h2>
+            <span>My Skills</span>
+        </div>
+        <!-- Skills Content -->
+        <div class="skills-container">
+            <div class="html">
+                <img src="https://firebasestorage.googleapis.com/v0/b/hardikgehlot-portfolio.appspot.com/o/html5.png?alt=media&token=2532ee08-fc89-44f8-9e5c-bb054d2daed5"
+                    alt="">
+                <h4>HTML5</h4>
+            </div>
+            <div class="css">
+                <img src="https://firebasestorage.googleapis.com/v0/b/hardikgehlot-portfolio.appspot.com/o/css3.png?alt=media&token=642b560f-36ee-42db-a083-88dc9aae4e9b"
+                    alt="">
+                <h4>CSS3</h4>
+            </div>
+            <div class="js">
+                <img src="https://firebasestorage.googleapis.com/v0/b/hardikgehlot-portfolio.appspot.com/o/javascript.png?alt=media&token=7656d9fa-72bb-4dc5-9506-456fc15d7e4a"
+                    alt="">
+                <h4>JAVASCRIPT</h4>
+            </div>
+            <div class="bootstrap">
+                <img src="https://i.pinimg.com/736x/92/d6/60/92d660adb69ff63b4d133cda9592d848.jpg" alt="">
+                <h4>BOOTSTRAP 5</h4>
+            </div>
+            <div class="reactjs">
+                <img src="https://firebasestorage.googleapis.com/v0/b/hardikgehlot-portfolio.appspot.com/o/react.png?alt=media&token=f3ee31c2-55f6-4d7b-87c9-78cbad6168e8"
+                    alt="">
+                <h4>REACT-JS</h4>
+            </div>
+            <div class="nextjs">
+                <img src="https://i.pinimg.com/736x/a4/52/ea/a452eae371f079b141494c5aff07a140.jpg" alt="">
+                <h4>Next-JS</h4>
+            </div>
+            <div class="reactnative">
+                <img src="https://i.pinimg.com/736x/7c/42/d5/7c42d547fb68a347c416b1a30989cb29.jpg" alt="">
+                <h4>REACT-NATIVE</h4>
+            </div>
+        </div>
+
+    </section>
+    <!-- Services -->
+    <section class="education" id="education">
+        <div class="heading">
+            <h2>Education</h2>
+            <span>10th, 12th, Graduation</span>
+        </div>
+        <div class="services-content">
+            <!-- Box 1 -->
+            <div class="services-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
+                    <path
+                        d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                </svg>
+                <h5>2025-present</h5>
+                <h2>B.C.A Bachelor of Computer Appplication</h2>
+                <h3>Bhupal Noble's University Udaipur,Rajsthan</h3>
+            </div>
+            <!-- Box 2 -->
+            <div class="services-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
+                    <path
+                        d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                </svg>
+                <h4>12th</h4>
+                <h5>2022-23</h5>
+                <h2>Sen Secondary School</h2>
+                <h3>Govt. Sen. Sec. School Bharja,Shirohi</h3>
+                <h6>77.00% in Rajsthan Board</h6>
+            </div>
+            <!-- Box 3 -->
+            <div class="services-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917z" />
+                    <path
+                        d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z" />
+                </svg>
+                <h4>10th</h4>
+                <h5>2021-22</h5>
+                <h2>Sen Secondary School</h2>
+                <h3>Govt. Sen. Sec. School Bharja,Shirohi</h3>
+                <h6>76.64% in Rajsthan Board</h6>
+            </div>
+            <div class="services-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="leetcode">
+                    <path fill="#B3B1B0"
+                        d="M22 14.355c0-.742-.564-1.346-1.26-1.346H10.676c-.696 0-1.26.604-1.26 1.346s.563 1.346 1.26 1.346H20.74c.696.001 1.26-.603 1.26-1.346z">
+                    </path>
+                    <path fill="#E7A41F"
+                        d="m3.482 18.187 4.313 4.361c.973.979 2.318 1.452 3.803 1.452 1.485 0 2.83-.512 3.805-1.494l2.588-2.637c.51-.514.492-1.365-.039-1.9-.531-.535-1.375-.553-1.884-.039l-2.676 2.607c-.462.467-1.102.662-1.809.662s-1.346-.195-1.81-.662l-4.298-4.363c-.463-.467-.696-1.15-.696-1.863 0-.713.233-1.357.696-1.824l4.285-4.38c.463-.467 1.116-.645 1.822-.645s1.346.195 1.809.662l2.676 2.606c.51.515 1.354.497 1.885-.038.531-.536.549-1.387.039-1.901l-2.588-2.636a4.994 4.994 0 0 0-2.392-1.33l-.034-.007 2.447-2.503c.512-.514.494-1.366-.037-1.901-.531-.535-1.376-.552-1.887-.038l-10.018 10.1C2.509 11.458 2 12.813 2 14.311c0 1.498.509 2.896 1.482 3.876z">
+                    </path>
+                    <path fill="#070706"
+                        d="M8.115 22.814a2.109 2.109 0 0 1-.474-.361c-1.327-1.333-2.66-2.66-3.984-3.997-1.989-2.008-2.302-4.937-.786-7.32a6 6 0 0 1 .839-1.004L13.333.489c.625-.626 1.498-.652 2.079-.067.56.563.527 1.455-.078 2.066-.769.776-1.539 1.55-2.309 2.325-.041.122-.14.2-.225.287-.863.876-1.75 1.729-2.601 2.618-.111.116-.262.186-.372.305-1.423 1.423-2.863 2.83-4.266 4.272-1.135 1.167-1.097 2.938.068 4.127 1.308 1.336 2.639 2.65 3.961 3.974.067.067.136.132.204.198.468.303.474 1.25.183 1.671-.321.465-.74.75-1.333.728-.199-.006-.363-.086-.529-.179z">
+                    </path>
+                </svg>
+                <h3>Leetcode</h3>
+                <a href="https://leetcode.com/u/RanjeetKumar287/">Learn More</a>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio -->
+    <section class="project" id="project">
+        <div class="heading">
+            <h2>Project</h2>
+            <span>Proper Work</span>
+        </div>
+        <div class="img1">
+            <h3>GYM WEB</h3>
+            <h5>HTML | CSS | JAVASCRIPT</h5>
+            <img src="https://www.primalstrength.com/cdn/shop/files/gym_design_Headers.jpg?v=1680779429&width=2000"
+                alt="" width="230px" height="250px">
+            <button><a href="https://github.com/RanjeetKumar28/Gym">CODE</a></button>
+            <button><a href="https://ranjeetkumar28.github.io/Gym/">PREVIEW</a></button>
+        </div>
+        <br>
+        <div class="img2">
+            <h3>Movies WEB</h3>
+            <h5>HTML | CSS | JAVASCRIPT</h5>
+            <img src="https://i.pinimg.com/736x/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg" alt="" width="230px"
+                height="250px">
+            <button><a href="https://github.com/RanjeetKumar28/Movies">CODE</a></button>
+            <button><a href="https://ranjeetkumar28.github.io/Movies/">PREVIEW</a></button>
+        </div>
+        <br>
+        </div>
+    </section>
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="heading">
+            <h2>Contact</h2>
+            <span>Connect With Us</span>
+        </div>
+        <div class="column right-1">
+            <div class="text">Message me</div>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="ebf6ed90-7546-4827-8dd0-92bc9424094b">
+
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" onclick=" emailSend()">Submit</button>
+            </form> <!-- Reach -->
+
+        </div>
+
+
+        </div>
+    </section>
+    <!-- Footer -->
+    <div class="footer">
+        <h2>Social Media Active</h2>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/ranjeet-kumar-72535929a/"><i class='bx bxl-linkedin'></i></a>
+            &nbsp;
+            <a href="https://github.com/RanjeetKumar28"><i class='bx bxl-github'></i></a>
+
+
+        </div>
+
+    </div>
+    <script>
+
+        let header = document.querySelector('header');
+        let menu = document.querySelector('#menu-icon');
+        let navbar = document.querySelector('.navbar');
+
+
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('shadow', window.scrollY > 0);
+        });
+
+        menu.onclick = () => {
+            navbar.classList.toggle('active');
+        }
+        window.onscroll = () => {
+            navbar.classList.remove('active');
+        }
+
+        // Dark Mode
+        let darkmode = document.querySelector('#darkmode');
+
+        darkmode.onclick = () => {
+            if (darkmode.classList.contains('bx-moon')) {
+                darkmode.classList.replace('bx-moon', 'bx-sun');
+                document.body.classList.add('active');
+            } else {
+                darkmode.classList.replace('bx-sun', 'bx-moon');
+                document.body.classList.remove('active');
+            }
+        }
+
+
+        function emailSend() {
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "ranjeetkumar28072@gmail.com",
+                Password: "3FE469DE4348296C329C91466B203924A9BD",
+                To: 'ranjeetgehlot20062gmail.com',
+                From: "ranjeetkumar28072@gmail.com",
+                Subject: "This is the subject",
+                Body: "And this is the body"
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+</body>
+
+</html>
